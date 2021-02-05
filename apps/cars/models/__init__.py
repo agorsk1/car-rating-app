@@ -1,2 +1,2 @@
-from .Car import Car
-from .Rating import Rating
+from .car import Car
+from .rating import Rating

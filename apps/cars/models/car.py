@@ -11,6 +11,7 @@ class Car(CreatedTimeStampMixin):
     class Meta:
         verbose_name = _('Car')
         verbose_name_plural = _('Cars')
+        unique_together = ['car_make', 'car_model']
 
     car_make = models.CharField(
         verbose_name=_('Make'),

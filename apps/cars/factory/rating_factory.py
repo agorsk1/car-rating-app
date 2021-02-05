@@ -3,7 +3,7 @@ import factory
 from ..models import Rating
 
 
-class RatingFactory(factory.django.DjangoModelFactory):
+class SingleRatingFactory(factory.django.DjangoModelFactory):
     """
     Rating factory for testing purposes
 
@@ -12,3 +12,6 @@ class RatingFactory(factory.django.DjangoModelFactory):
     """
     class Meta:
         model = Rating
+
+    rating_start = factory.Iterator(Rating.STAR_CHOICES, getter=lambda c: c[0])
+
