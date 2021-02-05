@@ -1,0 +1,19 @@
+FROM python:3.9-slim
+
+ENV PYTHONUNBUFFERED 1
+RUN mkdir /code
+WORKDIR /code
+
+RUN apt-get update \
+&& apt-get install netcat build-essential -y \
+&& apt-get clean
+
+COPY ./requirements /code/requirements
+RUN pip install -r ./requirements/dev.txt
+COPY . /code/
+
+COPY ./entrypoint.sh /entrypoint.sh
+RUN ["chmod", "+x", "/entrypoint.sh"]
+
+RUN useradd -u 8877 docker_user
+USER docker_user

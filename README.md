@@ -25,15 +25,16 @@ Created by Artur Górski
 
 ## Setup
 ### Docker env files
-#### example env files:
+#### example .env files:
+In directory ./.env/dev/ create:
 
-* .env.web
+* .env.backend
 ```
 SECRET_KEY=<Your secret>
 DEBUG=True
 DJANGO_SETTINGS_MODULE=config.settings.dev
 ```
-* .env.db
+* .env.postgres
 ```
 POSTGRES_DB=postgres
 POSTGRES_USER=postgres_user

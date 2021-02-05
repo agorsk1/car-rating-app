@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:alpine
+    env_file:
+      - .env/dev/.env.postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+
+  backend:
+    build:
+      context: .
+      dockerfile: ./Dockerfile-dev
+    command: make runserver
+    volumes:
+       - .:/code
+    env_file:
+      - .env/dev/.env.backend
+      - .env/dev/.env.postgres
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+    entrypoint: /entrypoint.sh
+
+volumes:
+  postgres_data:
