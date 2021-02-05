@@ -1,12 +1,12 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from .abstract.mixins import TimeStampMixin
+from .abstract.mixins import CreatedTimeStampMixin
 
 
-class Car(TimeStampMixin):
+class Car(CreatedTimeStampMixin):
     """
-    Car model that is an extension of TimeStamp Model mixing. It stores information about car model and make
+    Car model that is an extension of CreatedTimeStamp Model mixing. It stores information about car model and make
     """
     class Meta:
         verbose_name = _('Car')
@@ -22,3 +22,6 @@ class Car(TimeStampMixin):
         max_length=255,
         help_text=_('Model of a car')
     )
+
+    def __str__(self) -> str:
+        return f'{self.car_make} {self.car_model}'

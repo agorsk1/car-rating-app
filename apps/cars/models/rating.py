@@ -2,15 +2,15 @@ from django.contrib.auth import get_user_model
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from .abstract.mixins import TimeStampMixin
+from .abstract.mixins import FullTimeStampMixin
 from .car import Car
 
 
-class Rating(TimeStampMixin):
+class Rating(FullTimeStampMixin):
     """
-    Rating Model that is extension of TimeStamp Mixing. Rating stores information about users' car ratings.
+    Rating Model that is extension of FullTimeStamp Mixing. Rating stores information about users' car ratings.
 
-    Single user can add only one rating to a specific car.
+    Single user can add only one rating of a specific car.
     """
     class Meta:
         verbose_name = _('Car rating')
@@ -44,8 +44,11 @@ class Rating(TimeStampMixin):
     )
     rating_car = models.ForeignKey(
         Car,
-        verbose_name=_('Car rating'),
+        verbose_name=_('Car'),
         related_name='car_rating',
         on_delete=models.CASCADE,
         help_text=_('Car model that is rated by a user')
     )
+
+    def __str__(self) -> str:
+        return f'{self.rating_stars} for {self.rating_car} by {self.rating_user}'
