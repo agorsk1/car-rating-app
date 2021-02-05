@@ -1,2 +1,2 @@
-from .car import CarAdmin
-from .rating import RatingAdmin
+from .CarAdmin import CarAdmin
+from .RatingAdmin import RatingAdmin

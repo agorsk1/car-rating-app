@@ -6,6 +6,7 @@ from ..models import Rating
 
 @admin.register(Rating)
 class RatingAdmin(admin.ModelAdmin):
+    """Rating admin panel settings"""
     list_display = ['rating_user', 'rating_stars', 'get_car_model', 'get_car_make']
     list_select_related = ['rating_car', 'rating_user']
     list_filter = ['created_at', 'updated_at', 'rating_user', 'rating_stars']
@@ -13,7 +14,7 @@ class RatingAdmin(admin.ModelAdmin):
     ordering = ['rating_car__car_make', 'rating_car__car_model']
 
     def get_username(self, obj: Rating) -> str:
-        return obj.rating_user.username
+        return obj.rating_user.get_username()
 
     get_username.short_description = _('Username')
     get_username.admin_order_field = 'rating_user__username'

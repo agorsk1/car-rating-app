@@ -3,7 +3,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 from .abstract.mixins import FullTimeStampMixin
-from .car import Car
+from .Car import Car
 
 
 class Rating(FullTimeStampMixin):
