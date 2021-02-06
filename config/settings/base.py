@@ -35,6 +35,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # External apps
+    'rest_framework',
+
     # Internal apps
     'apps.cars',
 ]
@@ -110,3 +113,17 @@ STATIC_URL = '/static/'
 # Atomic transaction
 # https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-DATABASE-ATOMIC_REQUESTS
 ATOMIC_REQUESTS = True
+
+
+# Django rest framework config
+# https://www.django-rest-framework.org/api-guide/settings/
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 100
+}

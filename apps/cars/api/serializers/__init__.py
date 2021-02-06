@@ -1,0 +1,1 @@
+from .car_serializers import CarWithAvgRatingSerializer

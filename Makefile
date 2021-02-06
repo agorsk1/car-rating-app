@@ -16,3 +16,5 @@ dev_down:
 	docker-compose -f docker-compose-dev.yml down
 dev_migrate:
 	docker-compose -f docker-compose-dev.yml run backend make migrate
+dev_test:
+	docker-compose -f docker-compose-dev.yml run backend python manage.py test --noinput

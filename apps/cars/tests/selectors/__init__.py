@@ -1,0 +1,1 @@
+from .test_get_all_cars_with_avg_rating import GetAllCarsWithAvgRatingSelectorTest

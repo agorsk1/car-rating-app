@@ -17,7 +17,10 @@ import debug_toolbar
 from django.contrib import admin
 from django.urls import path, include
 
+from apps.cars.api.cars_with_avg_rating_list_api import CarWithAvgRatingListApi
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('__debug__/', include(debug_toolbar.urls)),
+    path('cars/', CarWithAvgRatingListApi.as_view(), name='api_list_car_with_avg_ratings')
 ]
