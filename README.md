@@ -17,7 +17,7 @@ Created by Artur Górski
 - #### Service
   Gather business logic for write operations (db and external sources)
 - #### Api
-  Gather all apis, views logic
+  Gather all apis, views logic, serializers etc.
 - #### Models
   Django Models
 - #### Admin
