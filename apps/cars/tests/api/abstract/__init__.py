@@ -1,1 +1,2 @@
-from .abstract_api_test_case import AbstractGetApiTest
+from .abstract_get_api_test import AbstractGetApiTest
+from .abstract_post_api_test import AbstractPostApiTest

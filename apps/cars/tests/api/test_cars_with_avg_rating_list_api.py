@@ -5,7 +5,7 @@ import factory
 from django.http import HttpResponse
 from rest_framework.generics import GenericAPIView
 
-from .abstract.abstract_api_test_case import AbstractGetApiTest
+from .abstract.abstract_get_api_test import AbstractGetApiTest
 from ...api import CarWithAvgRatingListApi
 from ...factory import CarFactory, RatingFactory
 from ...models import Rating
@@ -15,10 +15,10 @@ class GetAllCarsWithAvgRatingListApiTest(AbstractGetApiTest.AbstractGetApiTestCa
     """
     Test checks if api that return data about cars and its star ratings works correctly
     """
-    def _get_endpoint(self) -> str:
+    def _endpoint(self) -> str:
         return '/cars/'
 
-    def _get_view(self) -> GenericAPIView.as_view():
+    def _view(self) -> GenericAPIView.as_view():
         return CarWithAvgRatingListApi.as_view()
 
     @staticmethod
