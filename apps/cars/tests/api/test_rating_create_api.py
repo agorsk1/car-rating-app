@@ -1,7 +1,7 @@
 from rest_framework.generics import GenericAPIView
 
 from .abstract import AbstractPostApiTest
-from ...api.rating_post_api import RatingPostApi
+from ...api.rating_create_api import RatingCreateApi
 from ...factory import CarFactory
 from ...models import Rating
 
@@ -11,7 +11,7 @@ class RatingPostApiTest(AbstractPostApiTest.AbstractGetApiTestCase):
         return '/rate/'
 
     def _view(self) -> GenericAPIView.as_view():
-        return RatingPostApi.as_view()
+        return RatingCreateApi.as_view()
 
     def test_no_data(self) -> None:
         """test if client send empty body, endpoint will return 400"""

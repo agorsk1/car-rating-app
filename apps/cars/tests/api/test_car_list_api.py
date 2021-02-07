@@ -6,7 +6,7 @@ from django.http import HttpResponse
 from rest_framework.generics import GenericAPIView
 
 from .abstract.abstract_get_api_test import AbstractGetApiTest
-from ...api import CarWithAvgRatingListApi
+from ...api import CarListCreateApi
 from ...factory import CarFactory, RatingFactory
 from ...models import Rating
 
@@ -19,7 +19,7 @@ class CarWithAvgRatingListApiTest(AbstractGetApiTest.AbstractGetApiTestCase):
         return '/cars/'
 
     def _view(self) -> GenericAPIView.as_view():
-        return CarWithAvgRatingListApi.as_view()
+        return CarListCreateApi.as_view()
 
     @staticmethod
     def _get_response_results(response: HttpResponse) -> list:

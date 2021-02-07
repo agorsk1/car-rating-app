@@ -31,6 +31,6 @@ class AbstractBaseTest(object):
             pass
 
         @abstractmethod
-        def test_anonymous_request(self) -> None:
+        def test_anonymous_request(self, *args, **kwargs) -> None:
             """test if anonymous user cannot access endpoint"""
             pass

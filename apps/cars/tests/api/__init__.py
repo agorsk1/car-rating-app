@@ -1,0 +1,4 @@
+from .test_car_create_api import CarCreateApiTest
+from .test_car_list_api import CarWithAvgRatingListApiTest
+from .test_car_popularity_list_api import CarPopularityListApiTest
+from .test_rating_create_api import RatingPostApiTest

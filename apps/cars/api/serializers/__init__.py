@@ -1,2 +1,6 @@
-from .car_serializers import CarWithAvgRatingSerializer, CarPopularitySerializer
+from .car_serializers import (
+    CarSerializer,
+    CarPopularitySerializer,
+    CarSerializer
+)
 from .rating_serializers import RatingSerializer

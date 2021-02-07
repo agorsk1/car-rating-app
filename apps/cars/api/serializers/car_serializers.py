@@ -3,9 +3,10 @@ from rest_framework import serializers
 from django.utils.translation import gettext_lazy as _
 
 from ...models import Car
+from ...service import CarSaveService
 
 
-class CarWithAvgRatingSerializer(serializers.ModelSerializer):
+class CarSerializer(serializers.ModelSerializer):
     """Car model serializer that also accepts avg ratings for each car"""
     car_avg_rating = serializers.DecimalField(
         label=_('Car average rating'),
@@ -14,6 +15,19 @@ class CarWithAvgRatingSerializer(serializers.ModelSerializer):
         read_only=True,
         help_text=_('Average car rating, if there is no rating this value equals 0')
     )
+
+    def get_unique_together_validators(self):
+        """
+        Overriding method to disable unique together checks
+
+        this validation is implemented as CarServiceValidator
+        """
+        return []
+
+    def validate(self, data):
+        car_service = CarSaveService(data)
+        car_service.validate_data()
+        return car_service.get_normalized_data()
 
     class Meta:
         model = Car

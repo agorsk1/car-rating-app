@@ -23,7 +23,7 @@ class AbstractPostApiTest(object):
             response = self.view(request)
             return response
 
-        def test_anonymous_request(self) -> None:
+        def test_anonymous_request(self, *args, **kwargs) -> None:
             """test if anonymous user cannot access endpoint with post request"""
             request = self.request_factory.post(self.endpoint)
             response = self.view(request)

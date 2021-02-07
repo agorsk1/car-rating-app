@@ -1,3 +1,3 @@
-from .car_with_avg_rating_list_api import CarWithAvgRatingListApi
-from .rating_post_api import RatingPostApi
+from .car_list_create_api import CarListCreateApi
+from .rating_create_api import RatingCreateApi
 from .car_pupularity_list_api import CarPopularityApi

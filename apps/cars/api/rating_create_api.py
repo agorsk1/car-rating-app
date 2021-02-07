@@ -4,7 +4,7 @@ from apps.cars.api.serializers.rating_serializers import RatingSerializer
 from apps.cars.models import Rating
 
 
-class RatingPostApi(CreateAPIView):
+class RatingCreateApi(CreateAPIView):
     """
     Api that allows to rate a car
 

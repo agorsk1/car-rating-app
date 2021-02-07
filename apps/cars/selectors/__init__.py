@@ -1,2 +1,3 @@
 from .get_all_cars_with_avg_ratings import get_all_cars_with_avg_rating
 from .get_all_cars_popularity import get_all_cars_popularity
+from .get_models_for_make import get_models_for_make

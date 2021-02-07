@@ -22,7 +22,7 @@ from apps.cars import api as car_api
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('__debug__/', include(debug_toolbar.urls)),
-    path('cars/', car_api.CarWithAvgRatingListApi.as_view(), name='api_list_car_with_avg_ratings'),
-    path('rate/', car_api.RatingPostApi.as_view(), name='api_post_rating'),
-    path('popular/', car_api.CarPopularityApi.as_view(), name='api_list_car_popularity')
+    path('cars/', car_api.CarListCreateApi.as_view(), name='api_create_list_car'),
+    path('rate/', car_api.RatingCreateApi.as_view(), name='api_create_rating'),
+    path('popular/', car_api.CarPopularityApi.as_view(), name='api_list_car_popularity'),
 ]
