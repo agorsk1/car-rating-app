@@ -18,3 +18,16 @@ class CarWithAvgRatingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Car
         exclude = ['created_at']
+
+
+class CarPopularitySerializer(serializers.ModelSerializer):
+    """Car model serializer that also accepts car popularity"""
+    car_popularity = serializers.IntegerField(
+        label=_('Car popularity'),
+        read_only=True,
+        help_text=_('Count of ratings of a car')
+    )
+
+    class Meta:
+        model = Car
+        exclude = ['created_at']

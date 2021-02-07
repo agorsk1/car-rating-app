@@ -1,5 +1,8 @@
 from rest_framework.generics import ListAPIView
 
+from ..selectors import get_all_cars_popularity
+from .serializers import CarPopularitySerializer
+
 
 class CarPopularityApi(ListAPIView):
     """
@@ -10,4 +13,5 @@ class CarPopularityApi(ListAPIView):
     car_make - Make of a car
     car_model - Model of a car
     """
-    pass
+    queryset = get_all_cars_popularity().order_by('-car_popularity')
+    serializer_class = CarPopularitySerializer

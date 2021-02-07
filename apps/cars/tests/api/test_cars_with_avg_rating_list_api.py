@@ -11,7 +11,7 @@ from ...factory import CarFactory, RatingFactory
 from ...models import Rating
 
 
-class GetAllCarsWithAvgRatingListApiTest(AbstractGetApiTest.AbstractGetApiTestCase):
+class CarWithAvgRatingListApiTest(AbstractGetApiTest.AbstractGetApiTestCase):
     """
     Test checks if api that return data about cars and its star ratings works correctly
     """
