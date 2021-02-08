@@ -1,4 +1,4 @@
-from typing import OrderedDict, Union, Dict
+from typing import Dict
 
 from rest_framework import serializers
 
@@ -8,7 +8,7 @@ from .selectors import get_models_for_make
 
 class CarSaveService:
     """Car service used for validation of the data during creation of a new car"""
-    def __init__(self, data: OrderedDict[str, str]):
+    def __init__(self, data):
         self.data = data
         self.fetched_car_data = self._get_valid_car_models()
         self.valid_car_data = None
